@@ -1,4 +1,4 @@
-# CV
+# *Curriculum Vitae*
 ## Personal information
 * Name: Stanislav Kulikovsky
 * Address: 42 Tavlaya Street, apt. 90, Grodno, 230005, Belarus.
