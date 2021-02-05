@@ -1,0 +1,101 @@
+body {
+  background-color: lightblue;
+  background-image: -webkit-repeating-linear-gradient(
+    0deg,
+    lightblue,
+    rgb(190, 238, 255),
+    lightblue
+  );
+  background-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+code {
+  font-size: large;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 40px 5px;
+  border-top: 1px solid #aaaaaa;
+}
+
+header {
+  text-align: center;
+}
+
+nav p {
+  color: blue;
+  font-weight: 600;
+  line-height: 0px;
+  padding-top: 8px;
+  text-indent: 8px;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li {
+  padding-left: 30px;
+  background-image: url(img/list.svg);
+  background-repeat: no-repeat;
+  background-position-x: -0px;
+  background-position-y: -5px;
+  background-size: 32px;
+}
+
+#last {
+  background-image: url(img/last.svg);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: blue;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+p {
+  text-indent: 20px;
+}
+
+#edu p {
+  text-indent: 0;
+  padding-left: 20px;
+}
+
+#p-info ul {
+  list-style: none;
+  padding: 0 20px 0;
+}
+
+#skills ul li ul{
+    padding-left: 20px;
+}
+
+.content-block {
+  background-color: white;
+  width: 740px;
+  margin: auto;
+  border: 8px solid lightblue;
+  padding: 0 2%;
+}
+
+.example {
+  background-color: rgb(234, 226, 250);
+  border: 1px solid rgb(160, 120, 235);
+  border-radius: 15px;
+  width: 320px;
+  margin: 0 auto 20px 10px;
+  padding: 0px 20px 3px 20px;
+}
+
+.underline {
+  text-decoration: underline;
+}

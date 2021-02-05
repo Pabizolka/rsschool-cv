@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculum Vitae</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="start">
+    <div class="content-block">
+      <header>
+        <h1>Stanislav Kulikovsky</h1>
+        student of Rolling Scopes School
+        <figure>
+          <img src="img/photo.jpg" alt="Personal Photo" width="200" />
+        </figure>
+      </header>
+      <main>
+        <nav>
+          <strong>Navigation</strong>
+          <p>Curriculum Vitae</p>
+          <ul>
+            <li><a href="#p-info">Personal information</a></li>
+            <li><a href="#obj">Objective</a></li>
+            <li><a href="#exp">Work experience</a></li>
+            <li><a href="#edu">Education</a></li>
+            <li><a href="#skills">Special skills</a></li>
+            <li id="last"><a href="#code-ex">Example of code</a></li>
+          </ul>
+        </nav>
+        <article>
+          <h2>Curriculum Vitae</h2>
+          <section id="p-info">
+            <h3>Personal information</h3>
+            <ul>
+              <li>Name: Stanislav Kulikovsky</li>
+              <li>
+                Address: 42 Tavlaya Street, apt. 90, Grodno, 230005, Belarus
+              </li>
+              <li>
+                Phone number: <span class="underline">+375 (33) 621 33 60</span>
+              </li>
+              <li>Marital status: single</li>
+              <li>
+                Date of birth:
+                <time datetime="1995-09-05">5th September 1995</time>
+              </li>
+              <li>
+                Email: <span class="underline">1232312009qq@gmail.com</span>
+              </li>
+            </ul>
+          </section>
+          <section id="obj">
+            <h3>Objective</h3>
+            <p>
+              To obtain employment in the field of IT to use my technical
+              mindset and ability to learn quickly.
+            </p>
+          </section>
+          <section id="exp">
+            <h3>Work experience</h3>
+            <p>
+              I gained some experience in electronics and simple programming
+              while working in a research lab.
+            </p>
+          </section>
+          <section id="edu">
+            <h3>Education</h3>
+            <p>
+              Yanka Kupala State University of Grodno. <br />Specialty:
+              Information and Measuring Equipment
+            </p>
+          </section>
+          <section id="skills">
+            <h3>Special skills</h3>
+            <ul>
+              <li>
+                Language skills:
+                <ul>
+                  <li>Russian (native)</li>
+                  <li>Polish (fluent,except writing)</li>
+                  <li><em>English (A2)</em></li>
+                </ul>
+              </li>
+              <li>
+                Programming skills:
+                <ul>
+                  <li>
+                    Medium level of programming STM and PIC controllers in
+                    Basic, C, and C++ languages.
+                  </li>
+                  <li>
+                    Basic level of programming: <i>C++, C#, Java, Basic</i>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Special computer literacy:
+                <ul>
+                  <li>Proteus</li>
+                  <li>Autocad</li>
+                </ul>
+              </li>
+              <li>Driving license: +</li>
+            </ul>
+          </section>
+          <section id="code-ex">
+            <h3>Example of simple C code for a PIC controller</h3>
+            <div class="example">
+              <pre><code>#define COMP (CMCON&0b10000000)&gt;&gt;7  
+#define OTKRYT RB2_bit  
+#define ZAKRYT RB3_bit
+#define VINT RB4_bit  
+#define LAMP RB5_bit    
+
+unsigned short ocount, zcount;  
+void error(){
+  RB1_bit=0;
+  RB0_bit=0;
+    do{                            
+      Sound_play(800,250);            
+      Delay_ms(500);                 
+    }while(1);                      
+}
+void otkr(){
+  LAMP=1;                       
+  RB1_bit=0;                  
+  RB0_bit=1;                     
+  Delay_ms(100);              
+  RB1_bit=1;               
+  ocount=0;                      
+  do{                         
+    ocount++;                       
+    Delay_ms(1000);                
+  }while(OTKRYT==0&&ocount&lt;10);  
+  if (OTKRYT==0&&ocount&gt;9)error();
+  if (OTKRYT==1)RB1_bit=0;        
+  RB0_bit=0;
+}
+void zakr(){
+  RB0_bit=0;                  
+  Delay_ms(100);                 
+  RB1_bit=1;               
+  zcount=0;                      
+  do{                          
+    zcount++;                     
+    Delay_ms(1000);                 
+  }while(ZAKRYT==0&&zcount&lt;10); 
+  if (ZAKRYT==0&&zcount&gt;9)error();
+  if (ZAKRYT==1)RB1_bit=0;      
+}
+
+
+void main() {                   
+  Sound_init(&PORTA,0);        
+  CMCON=0b00100101;             
+  TRISA=0x06;                   
+  TRISB=0x0C;                  
+  PORTA=0;                     
+  PORTB=0;                   
+  VRCON=0b11100100;             
+  if(COMP==1)LAMP=1;            
+  do {                             
+    Delay_ms(250);                   
+    VRCON=0b11100101;             
+    Delay_ms(250);                  
+    if(COMP==1&&OTKRYT==0)otkr();   
+    Delay_ms(250);                   
+    VRCON=0b11100100;             
+    Delay_ms(250);                   
+    if(COMP==0&&ZAKRYT==0)zakr();
+    if(OTKRYT==0&&ZAKRYT==0)zakr();
+    if(OTKRYT==1&&ZAKRYT==1)error();
+    if(OTKRYT==1&&VINT==0)VINT=1;
+    if(ZAKRYT==1&&VINT==1)VINT=0;
+  } while(1);                        
+}</code></pre>
+            </div>
+          </section>
+        </article>
+      </main>
+      <footer>
+        <a href="#start">Go to the beginning</a>
+        <p>The CV was made on the instructions of the school</p>
+      </footer>
+    </div>
+  </body>
+</html>
