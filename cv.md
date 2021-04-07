@@ -1,7 +1,7 @@
 # *Curriculum Vitae*
 ## Personal information
 * Name: Stanislav Kulikovsky
-* Address: 42 Tavlaya Street, apt. 90, Grodno, 230005, Belarus.
+* Address: Belarus.
 * Phone number: +375 (33) 621 33 60
 * Marital status: single
 * Date of birth: 5th September 1995
